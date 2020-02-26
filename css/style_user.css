@@ -329,7 +329,7 @@ a {
     word-wrap: normal;
     word-wrap: break-word;
     word-break: break-all;
-    color: #000000;
+    color: #fff;
     padding-bottom: 4px;
 }
 
@@ -629,7 +629,7 @@ a {
 }
 
 .aui-card-white {
-    background: #DECE80;
+    /*background: #efefef;*/
     height: 85px;
     box-shadow: 0 2px 36px 6 rgba(5,5,9,.8);
     border-radius: 12px;

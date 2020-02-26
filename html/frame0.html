@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../css/aui.css" />
     <link rel="stylesheet" type="text/css" href="../css/auislide.css" />
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-
+	
     <style>
         .empty{ text-align: center; padding: 100px 0; }
     </style>
@@ -49,7 +49,13 @@
 
 <body style="background-color:#fff">
 
-
+	<div class="aui-searchbar" id="search" style="background-color:#fff;">
+		<div class="aui-searchbar-input aui-border-radius">
+			<i class="aui-iconfont aui-icon-search"></i>
+			<input type="text" placeholder="输入影片关键词搜索,观影更快捷" id="ff-wd">
+		</div>
+		<div class="aui-btn aui-btn-info aui-btn-block" tapmode="" onclick="ss()" style="width:60px;height:30px;line-height:30px;margin-right:9px;">搜索</div>
+	</div>
 
   <div id="aui-slide" class="fx-box">
     <div id="slidebox" class="aui-slide-wrap" style="margin: 15px;border-radius:1rem;box-shadow:0.2rem 0.3rem 0.2rem rgba(50, 50, 50, 15.6);">
@@ -967,24 +973,89 @@ function banNer(){
     function fnRefreshHeaderLoading() {
         api.refreshHeaderLoading();
     };
-function ss(){
+	
+//////搜索方法//////
+function ss() {
+	var time = localStorage.getItem('user_time');
+	var user_id = localStorage.getItem('user_id');
+	var username = localStorage.getItem('user_name');
+	var timestamp = Date.parse(new Date()) / 1000;
+	if (user_id < 1) {
+		api.toast({
+			msg: '超级影视 VIP提醒！你还没登陆！',
+			duration: 5000
+		});
+		api.openWin({
+			name: 'login',
+			url: './login.html',
+			delay: 2000
+		});
+		return;
+	}
 
-            var wd = $api.val($api.byId('ff-wd'));
-			api.openWin({
-          name: 'h5',
-          url: './h5.html',
-          pageParam: {
-              url: 'https://kan.duzhiqiang.com/search/' + wd + '.html'
-            }
-        });
+	if (time > timestamp) {
+		api.ajax({
+			url: api_url + '/login/login/banben.html',
+			method: 'get'
+		}, function(ret, err) {
+			if (ret) {
+				api.toast({
+					msg: 'VIP登录'
+				});
+				setTimeout("playRadio();", 1000);
+				var delay = 0;
+				if (api.systemType != 'ios') {
+					delay = 300;
+				}
+				var wd = $api.val($api.byId('ff-wd'));
+				api.openWin({
+					name: 'h5',
+					url: './h5.html',
+					pageParam: {
+						url: 'http://vip.winds.fun/index.php/vod/search.html?wd=' + wd
+					}
+				});
+			} else {
+				api.toast({
+					msg: '请检查网络是否畅通'
+				});
+			}
+		});
+	} else if (time == -1) {
+		api.ajax({
+			url: api_url + '/login/login/banben.html',
+			method: 'get'
+		}, function(ret, err) {
+			if (ret) {
+				api.toast({
+					msg: '永久VIP登录'
+				});
+				setTimeout("playRadio();", 1000);
+				var delay = 0;
+				if (api.systemType != 'ios') {
+					delay = 300;
+				}
+				var wd = $api.val($api.byId('ff-wd'));
+				api.openWin({
+					name: 'h5',
+					url: './h5.html',
+					pageParam: {
+						url: 'http://vip.winds.fun/index.php/vod/search.html?wd=' + wd
+					}
+				});
+			} else {
+				api.toast({
+					msg: '请检查网络是否畅通'
+				});
+			}
+		});
+	} else if (time < timestamp) {
+		VipExpiredHint();
+	}
+}
+//////搜索方法//////
 
-
-
-
-
-    }
-
-    </script>
+</script>
 
 
 

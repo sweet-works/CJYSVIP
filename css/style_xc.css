@@ -94,10 +94,8 @@
   line-height:1.7rem;
   font-size: 0.7rem;
 }
-.login-bg{/*  background-color: #3484d8;
-  background-image: url(login_bg.png);   */background: linear-gradient(to right,#03bbf4 0,#d800ff 100%);background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;}
-.login-bg2{/*  background-color: #3484d8;
-  background-image: url(login_bg.png);   */background: linear-gradient(to right,#03bbf4 0,#d800ff 100%);background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;}
+.login-bg{background-image: url(login_bg.jpg);}
+.login-bg2{background-image: url(login_bg.jpg);}
 .close-back{
   padding-top: 1.5rem;
 }

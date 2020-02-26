@@ -35,7 +35,12 @@
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-position: center 0;
+
 }
+  .title_card{
+	  color: #fff;
+  }
+
     </style>
 </head>
 <body>
@@ -62,33 +67,30 @@
 
                                 <div style="float:left;border:solid 1px 000;"  id="islogin_vip" ></div>
                                 <div style="float:left;border:solid 1px 000;"   id="ispower" > </div>
-<span id="power"></span>
+								<span id="power"></span>
                               <br><br><br>
                               <p  id="isloginOrOut" > </p><!--登录或退出按钮-->
                             </div>
                           
                         </a>
 
-			<div class="center clearfix">
+			<div class="center clearfix" >
 
 				<a href="#" onClick="openWin('jifen_win')">
-					<h1 >我的积分</h1>
+					<h1 class="title_card">我的积分</h1>
 					<h1 id="sign" style="color:red ">- - -</h1>
 				</a>
 				<a onClick="DailiGuanLi()"  >
-					<h1 >我的收入</h1>
-					<em id="moneys" style="color:red ">- - -</em>
-					
+					<h1 class="title_card">我的收入</h1>
+					<em id="moneys" style="color:red ">- - -</em>					
 				</a>
-				
-				
 				 <a onClick="diansu()" >
-					<h1 >我的点数</h1>
+					<h1 class="title_card">我的点数</h1>
 					<em id="money" style="color:red ">- - -</em>
 				</a>
 				
 				<a onClick="dl()"  >
-					<h1 >我的团队</h1>
+					<h1 class="title_card">我的团队</h1>
 					<h3  style="color:red ">点击查看</h3>
 				</a>
 			</div>
@@ -106,132 +108,157 @@
 				</a>
 			</div>
 	</div>
-						
+	
+	</div>
+	<div class="line2" style="padding-left: 15px;padding-right: 15px;padding-bottom: 25%; color: #000;">
+		<div class="czhy" style="width:49.5%; height: 20%;float:left;">
+			<a onClick="toLogin()">
+				<img src="../image/app/czhy.png">
+			</a>
 		</div>
-				
-                    <div class="aui-card-box" >
-                        
-                        <div class="aui-card-white">
-                        <!--    <div class="aui-palace clearfix"> 4格 -->
+		<div class="ktdl" style="width:49.5%; height: 20%; float:right">
+			<a onClick="openWin('open_agent_win')">
+				<img src="../image/app/ktdl.png">
+			</a>
+		</div>
+	</div>
+	
+</div>
 
-                            <div class="aui-palace aui-palace-clear clearfix">
-                                <a  onClick="toLogin()" class="aui-palace-grid">
-                                  <div class="aui-palace-grid-icon">
-                                      <img src="../image/app/cz.png" alt="">
-                                  </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2>会员续费</h2>
-                                    </div>
-                                </a>
-                             <a onClick="hyfl()" class="aui-palace-grid">
-                                  <div class="aui-palace-grid-icon">
-                                      <img src="../image/app/timg.png" alt="">
-                                  </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2>会员福利</h2>
-                                    </div>
-                                </a>
-                                <a onClick="look_record()"  class="aui-palace-grid">
-                                  <div class="aui-palace-grid-icon">
-                                      <img src="../image/app/jl.png" alt="">
-                                  </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2>观看记录</h2>
-                                    </div>
-                                </a>
-                            <!--    <a href="javascript:;" class="aui-palace-grid">
-                                    <div class="aui-palace-grid-icon">909
-                                    </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2>直播币</h2>
-                                    </div>
-                                </a> -->
-                                <a onClick="yh1()" class="aui-palace-grid aui-palace-grid-line">
-                                    <div class="aui-palace-grid-icon">
-                                        <img src="../image/app/weixin.png" alt="">
-                                    </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2><strong>用户专区</strong></h>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="aui-card-white">
-                            <div class="aui-palace aui-palace-clear clearfix">
-                                <a onClick="DailiGuanLi()"  class="aui-palace-grid">
-                                    <div class="aui-palace-grid-icon">
-                                        <img src="../image/app/dailiyonghu.png" alt="">
-                                    </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2>收入明细</h2>
-                                    </div>
-                                </a>
-                                <a onClick="dlgl()"  class="aui-palace-grid">
-                                    <div class="aui-palace-grid-icon">
-                                        <img src="../image/app/dlgl.png" alt="">
-                                    </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2>现金提现</h2>
-                                    </div>
-                                </a>
-                                     <a onClick="DailiQuma()"  class="aui-palace-grid">
-                                    <div class="aui-palace-grid-icon">
-                                        <img src="../image/app/dl.jpg" alt="">
-                                    </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2>自助取码</h2>
-                                    </div>
-                                </a>
-                                <a onClick="tjyh()"   class="aui-palace-grid aui-palace-grid-line">
-                                    <div class="aui-palace-grid-icon">
-                                        <img src="../image/app/zhifu.png" alt="">
-                                    </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2><strong>提现记录</strong></h2>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    
-                       <div class="aui-card-white">
-                            <div class="aui-palace aui-palace-clear clearfix">
-                                <a onClick="yh()"  class="aui-palace-grid">
-                                    <div class="aui-palace-grid-icon">
-                                        <img src="../image/app/yh.png" alt="">
-                                    </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2>用户管理</h2>
-                                    </div>
-                                </a>
-                                <a onClick="dl()"  class="aui-palace-grid">
-                                    <div class="aui-palace-grid-icon">
-                                        <img src="../image/app/xs.png" alt="">
-                                    </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2>团队管理</h2>
-                                    </div>
-                                </a>
-                                     <a onClick="openWin('open_agent_win')"  class="aui-palace-grid">
-                                    <div class="aui-palace-grid-icon">
-                                        <img src="../image/app/admin.png" alt="">
-                                    </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2>开通合伙人</h2>
-                                    </div>
-                                </a>
-                                <a onClick="yq()"   class="aui-palace-grid aui-palace-grid-line">
-                                    <div class="aui-palace-grid-icon">
-                                        <img src="../image/app/zq.png" alt="">
-                                    </div>
-                                    <div class="aui-palace-grid-text">
-                                        <h2><strong>代理邀请</strong></h2>
-                                    </div>
-                                </a>
-                                
-                            </div>
-                        </div>
 
+	<div class="aui-card-box" >
+		<div style="border-radius: 15px; margin-bottom: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+			<br />
+			<font size="4" style="margin: 30px;">用户专区</font>
+			<br /><br />
+			<hr color="#aaa" style=" width: 100%; height: 1px;">
+			<div class="aui-card-white">
+			<!--    <div class="aui-palace clearfix"> 4格 -->
+				<div class="aui-palace aui-palace-clear clearfix">	
+					<a  onClick="toLogin()" class="aui-palace-grid ">
+					  <div class="aui-palace-grid-icon">
+						  <img src="../image/app/cz.png" alt="">
+					  </div>
+						<div class="aui-palace-grid-text">
+							<h2>会员续费</h2>
+						</div>
+					</a>
+				 <a onClick="hyfl()" class="aui-palace-grid">
+					  <div class="aui-palace-grid-icon">
+						  <img src="../image/app/timg.png" alt="">
+					  </div>
+						<div class="aui-palace-grid-text">
+							<h2>会员福利</h2>
+						</div>
+					</a>
+					<a onClick="look_record()"  class="aui-palace-grid">
+					  <div class="aui-palace-grid-icon">
+						  <img src="../image/app/jl.png" alt="">
+					  </div>
+						<div class="aui-palace-grid-text">
+							<h2>观看记录</h2>
+						</div>
+					</a>
+				<!--    <a href="javascript:;" class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">909
+						</div>
+						<div class="aui-palace-grid-text">
+							<h2>直播币</h2>
+						</div>
+					</a> -->
+				<a onClick="yh1()" class="aui-palace-grid aui-palace-grid-line">
+					<div class="aui-palace-grid-icon">
+						<img src="../image/app/weixin.png" alt="">
+					</div>
+					<div class="aui-palace-grid-text">
+						<h2><strong>用户专区</strong></h>
+					</div>
+				</a>
+				</div>
+			</div>
+							
+		</div>
+		<div style="border-radius: 15px; margin-bottom: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+			<br />
+			<font size="4" style="margin: 30px;">代理合伙人专区</font>
+			<br /><br />
+			<hr color="#aaa" style=" width: 100%; height: 1px;">
+			<div class="aui-card-white">
+				<div class="aui-palace aui-palace-clear clearfix">
+					<a onClick="DailiGuanLi()"  class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">
+							<img src="../image/app/dailiyonghu.png" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h2>收入明细</h2>
+						</div>
+					</a>
+					<a onClick="dlgl()"  class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">
+							<img src="../image/app/dlgl.png" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h2>现金提现</h2>
+						</div>
+					</a>
+						 <a onClick="DailiQuma()"  class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">
+							<img src="../image/app/dl.jpg" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h2>自助取码</h2>
+						</div>
+					</a>
+					<a onClick="tjyh()"   class="aui-palace-grid ">
+						<div class="aui-palace-grid-icon">
+							<img src="../image/app/zhifu.png" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h2><strong>提现记录</strong></h2>
+						</div>
+					</a>
+					
+				</div>
+			</div>
+						
+		   <div class="aui-card-white">
+				<div class="aui-palace aui-palace-clear clearfix">
+					<a onClick="yh()"  class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">
+							<img src="../image/app/yh.png" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h2>用户管理</h2>
+						</div>
+					</a>
+					<a onClick="dl()"  class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">
+							<img src="../image/app/xs.png" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h2>团队管理</h2>
+						</div>
+					</a>
+					<a onClick="DailiShezhi()"  class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">
+							<img src="../image/app/admin.png" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h2>广告设置</h2>
+						</div>
+					</a>
+					<a onClick="yq()"   class="aui-palace-grid">
+						<div class="aui-palace-grid-icon">
+							<img src="../image/app/zq.png" alt="">
+						</div>
+						<div class="aui-palace-grid-text">
+							<h2><strong>代理邀请</strong></h2>
+						</div>
+					</a>
+					
+				</div>
+			</div>
+		</div>	
                     </div>
                     
                     <div class="aui-well-list">
@@ -240,11 +267,9 @@
                                 <img src="../image/app/error-img.jpg" alt="">
                             </div>
                             <div class="aui-well-item-bd">
-                                <h3>分享给好友</h3>
+                                <h3>普通用户分享下载</h3>
                             </div>
-                    
 
-                  
                         <a onClick="tjdl()" class="aui-well-item">
                             <div class="aui-well-item-hd">
                                 <img src="../image/app/about.png" alt="">
@@ -263,6 +288,7 @@
                             </div>
                             <span  class="aui-well-item-fr"  style=" font-size: 12px; ">傻瓜式赚钱培训系统 在线学习运营技巧</span>
                         </a>
+						<!--
                         <a onClick="openWin('back_pwd')" class="aui-well-item">
                             <div class="aui-well-item-hd">
                                 <img src="../image/app/mima.png" alt="">
@@ -272,6 +298,7 @@
                             </div>
                             <span  class="aui-well-item-fr"  style=" font-size: 12px; ">忘记密码也可以联系客服为你重置</span>
                         </a>
+						-->
                         <a onClick="openWin('guankan_help_win')"  class="aui-well-item">
                             <div class="aui-well-item-hd">
                                 <img src="../image/app/videohelp.png" alt="">
@@ -716,7 +743,7 @@ var demo = null;
 			time_ico.innerHTML = ' 管理员 ';
 			time.innerHTML = ' 欢迎回来！';
 
-			weichat.innerHTML = '客服微信：tangranran2015';
+			weichat.innerHTML = '客服微信：2327299920';
 			islogin_vip.innerHTML = ' <img src="../image/app/vip_guanfang.png" alt="" style=" width: 45px; height: 15px; ">';
 
 			islogin.innerHTML = '' + user_name;
@@ -2045,7 +2072,7 @@ NoAgencyAuthority()
                     name: 'daili_guanli_win',
                     url: './daili_guanli_win.html',
                     delay: 100,
-                    pageParam:{url:'http://vip.taogou1.cn/index/user/pass'},
+                    pageParam:{url:'http://vip.taogou1.cn/index/banner/'},
                     bgColor: 'rgba(0,0,0,0)'
                 });
 
@@ -2232,15 +2259,7 @@ NoAgencyAuthority()
            return;
          }
      });
-
-
   }
-
-
-
-
-
-
 
   //管理员APP设置
   if (localStorage.getItem('user_id')==1)  {
@@ -2284,14 +2303,7 @@ NoAgencyAuthority()
   });
 
   }
-
-
-
-
-
 }
-
-
 
 function dl(){
   var user_id = localStorage.getItem('user_id');
