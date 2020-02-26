@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <style type="text/css">
+    	.myui-from {
+			padding-top: 5rem;
+			width: 80%;
+			margin: auto;
+		}
+    </style>
+</head>
+<body class="login-bg2">
+  <header class="aui-bar aui-bar-nav" id="aui-header" style="background-color:rgba(0,0,0,0) !important">
+      <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
+          <span class="aui-iconfont aui-icon-left"></span>
+      </a>
+      <div id="title" class="aui-title">注册</div>	
+  </header>
+
+			
+  <div class="myui-from">
+    <ul class="myui-from-list">
+      <li class="myui-from-list-item">
+        <div class="myui-code">
+          <input id="username" type="tel"  minlength="11" maxlength="11" placeholder="输入手机号码" class="myui-from-code-input">
+        </div>
+      </li>
+      <li class="myui-from-list-item">
+        <input id="password" type="password" placeholder="输入密码" class="myui-from-list-item-input" onfocus="xsyzm()" />
+      </li>
+       <li class="myui-from-list-item">
+        <input id="share" type="tel" minlength="6" maxlength="6" placeholder="邀请码(选填)" class="myui-from-list-item-input">
+      </li>
+		<div id="yzmx">
+			<li class="myui-from-code-inputx">
+				<input style="color: #FFF;" id="t1" type="text" name="u" placeholder="验证码" onblur="but()" />
+			</li>
+			<li class="myui-from-code-inputyzm">
+				<span id="discode" style="height:2.2rem;font-size: 26px;" ></span>
+			</li>
+			<li class="myui-from-code-inputbt">
+			<input id="hqyzm" type="button" value="获取验证码" style="height:2.2rem;width:100%;font-size: 11px;" onClick="createCode()">
+			</li>   
+		</div>	   
+         <li class="myui-from-list-item">
+        <button id="btn2" type="button" name="button" class="myui-from-list-item-button" onclick="toReg()">立即注册</button>
+      </li>
+    </ul>
+  </div>
+</body>
+
+<script type="text/javascript" src="../script/api.js" ></script>
+<script language="javascript">
+	var code; //在全局 定义验证码
+	var hdyzm;
+	/*windows.onload=function(){
+		var show = document.querySelector('#yzmx');
+		show.style.display='none';
+	} */
+
+   /* function xsyzm(){
+	 var show = document.querySelector('#yzmx');
+			show.style.display='block'; 
+			document.getElementById("btn2").disabled = 'true';
+			} */
+	function createCode()
+	{ //创建验证码函数
+	 code = "";
+	 var codeLength =4;//验证码的长度
+	 var selectChar = new Array(0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k',
+	  'l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');//所有候选组成验证码的字符，当然也可以用中文的
+	 for(var i=0;i<codeLength;i++)
+	 { 
+	 var charIndex =Math.floor(Math.random()*36);
+	 code +=selectChar[charIndex]; 
+	 }
+	// 设置验证码的显示样式，并显示
+	 
+	 document.getElementById("discode").style.background="#fffff"
+	 document.getElementById("discode").style.display='block';
+	 document.getElementById("discode").style.fontFamily="Fixedsys"; //设置字体
+	 document.getElementById("discode").style.letterSpacing="5px"; //字体间距
+	 document.getElementById("discode").style.color="#fff"; //字体颜色
+	 document.getElementById("discode").innerHTML=code; // 显示
+	 hqyzm.value="换一个";
+	}
+	function but(){//验证验证码输入是否正确
+	 var val1=document.getElementById("t1").value;
+	 var val2=code;
+	 if(val1!=val2){
+	  alert("验证码错误!");
+	 document.getElementById('t1').value="";
+	 return;
+	  } 
+		if(val1==''){ 
+			return;
+		}
+		 hdyzm=1;
+	}
+	
+	
+    //去注册
+    function toReg(){
+      var username = $api.val($api.byId('username'));
+      var password = $api.val($api.byId('password'));
+      var yzcode = $api.val($api.byId('yzcode'));
+      var share = $api.val($api.byId('share'));
+	  var zcecs = localStorage.getItem('zucecs');
+			if (zcecs ==1){
+				api.alert({
+						title: '提醒',
+						msg: '您的设备已经注册过了',
+				});
+				return;
+			}
+			
+      if(username == ''){
+        api.alert({
+            title: '你好!~',
+            msg: '请输入登录账号',
+        });
+        return;
+      }
+		 if (username.length != 11) {
+				api.alert({
+					title: '啊奥!~',
+					msg: '请输入11位手机号码',
+				});
+				return;
+			} 
+			 if(/^[0-9]+$/.test(username))
+			{  
+					}else{
+						alert('手机号码中有字母或其他符号！');
+						return;
+					} 	
+			if(password == ''){
+				api.alert({
+					title: '啊奥~!',
+					msg: '请输入密码',
+			});
+        return;
+      }
+			if(password.length < 6){
+				api.alert({
+					title: '啊奥~!',
+					msg: '请输入6位以上密码',
+			});
+        return;
+      }
+			if (hdyzm!= 1) {
+				api.alert({
+					title: '啊奥!~',
+					msg: '请输入验证码',
+				});
+				return;
+			} 
+			
+			// if(share == ''){
+			//   api.alert({
+			//       title: '调皮~',
+			//       msg: '请输入邀请码',
+			//   });
+			//   return;
+			// }
+     // user = $api.val($api.byId('username'));
+     // pass = $api.val($api.byId('password')); 
+      api.showProgress({
+          title: '注册中...',
+          text: '请稍等...',
+          modal: false
+      });
+      api.ajax({
+          url: 'http://vip.taogou1.cn/login/login/create.html',
+          method: 'get',
+          data: {
+              values: {
+                  name: username,
+                  password:password,
+				  share_ma:share,
+				  type:'App独立注册'
+              }
+          }
+      },function(ret, err){
+          if (ret) {
+              if (ret.code == 0) {
+                api.hideProgress();
+                api.alert({
+                    title: '错误~',
+                    msg: ret.msg,
+                });
+              }else {                
+			    api.hideProgress();
+                api.alert({
+                    title: '注册成功！',
+                    msg: '当前身份：体验会员',
+                });
+				localStorage.setItem('zucecs', '1');
+                api.closeWin({
+                    name: 'login'
+                });
+                //openLogin();
+
+                api.ajax({
+                    url: 'http://vip.taogou1.cn/login/login/veifys.html',
+                    method: 'get',
+                    data: {
+                        values: {
+                            username: username,
+                            passwd: password,
+                            imei:api.deviceId
+                        }
+                    }
+                },function(ret, err){
+                    if (ret) {
+                      if (ret.code == 0) {
+                        api.hideProgress();
+                        alert('账号或密码不正确');
+                        return;
+                      }else if (ret.code == 1) {
+                        //alert( JSON.stringify( ret ) );
+                          localStorage.setItem('user_id',ret.msg['id']);
+                          localStorage.setItem('user_name',username);
+                          localStorage.setItem('password',password);
+                          localStorage.setItem('user_time',ret.msg['time']);
+                          localStorage.setItem('user_share',ret.msg['share']);
+                          localStorage.setItem('user_advert',ret.msg['advert']);
+                          localStorage.setItem('user_code',ret.msg['code']);
+                          localStorage.setItem('user_weichat',ret.msg['weichat']);
+                          localStorage.setItem('url',ret.msg['url']);
+                          localStorage.setItem('url1',ret.msg['url1']);
+                          localStorage.setItem('url2',ret.msg['url2']);
+                          localStorage.setItem('url3',ret.msg['url3']);
+                          localStorage.setItem('url4',ret.msg['url4']);
+                          api.sendEvent({
+                            name: 'newLoingdata',
+                            extra: {
+                            }
+                          });
+                         api.hideProgress();
+                         //alert('登录成功');
+
+                          api.closeWin();
+                      }
+                    } else {
+                      api.hideProgress();
+                      alert('网络错误！');
+                      //alert( JSON.stringify( err ) );
+                      return;
+                    }
+                });
+                api.closeWin();
+              }
+          } else {
+            api.hideProgress();
+            api.alert({
+                title: '糟糕~',
+                msg: '网络错误！',
+            });
+          }
+      });
+    }
+
+    //页面传参
+    function openLogin(){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name: 'login',
+            url: './login.html',
+            pageParam:{user:user,pass:pass},
+        });
+    }
+</script>
+</html>
